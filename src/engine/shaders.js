@@ -1,3 +1,5 @@
+import * as vertexBuffers from "./vertex_buffer";
+
 const compile = (gl, source, shaderType) => {
   const compiledShader = gl.createShader(shaderType);
 
@@ -29,20 +31,25 @@ export class SimpleShader {
       throw new Error("Error linking shader");
     }
 
-    this.vertexPosition = this.gl.getAttribLocation(this.program, "vertexPosition");
+    this.vertexBuffer = vertexBuffers.init(this.gl);
+    this.vertexPositionRef = this.gl.getAttribLocation(this.program, "vertexPosition");
+    this.pixelColorRef = this.gl.getUniformLocation(this.program, "pixelColor");
   }
 
-  activate = (vertexBuffer) => {
+  activate = (pixelColor) => {
     this.gl.useProgram(this.program);
-    this.gl.bindBuffer(this.gl.ARRAY_BUFFER, vertexBuffer);
+
+    this.gl.bindBuffer(this.gl.ARRAY_BUFFER, this.vertexBuffer);
     this.gl.vertexAttribPointer(
-      this.vertexPosition,
+      this.vertexPositionRef,
       3,
       this.gl.FLOAT,
       false,
       0,
       0
     );
-    this.gl.enableVertexAttribArray(this.vertexPosition);
+    this.gl.enableVertexAttribArray(this.vertexPositionRef);
+
+    this.gl.uniform4fv(this.pixelColorRef, pixelColor);
   }
 }
