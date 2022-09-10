@@ -14,4 +14,5 @@ doing so are still being explored
 
 ## Current Progress
 The following screenshot shows what the engine can currently do:
+
 ![chapter 2 screenshot](./screenshots/chapter_2.png)
