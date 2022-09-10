@@ -16,3 +16,9 @@ doing so are still being explored
 The following screenshot shows what the engine can currently do:
 
 ![chapter 2 screenshot](./screenshots/chapter_2.png)
+
+ ## Project Structure
+ - src/engine: code for the actual game engine itself is here
+ - src/games: games created with the engine are here
+ - src/index.html, src/index.js: the entry point for the game served by `npm
+     start`
