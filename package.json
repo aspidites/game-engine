@@ -2,7 +2,6 @@
   "name": "game-engine",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "source": "src/index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
@@ -12,8 +11,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@parcel/transformer-glsl": "^2.7.0",
+  "dependencies": {
+    "@swc/helpers": "^0.4.11",
     "parcel": "^2.7.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-glsl": "^2.7.0"
   }
 }

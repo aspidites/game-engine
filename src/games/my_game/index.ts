@@ -3,7 +3,9 @@ import vertexShaderSource from './assets/glsl/square/vertex.glsl';
 import fragmentShaderSource from './assets/glsl/square/fragment.glsl';
 
 export default class MyGame {
-  constructor(canvasId) {
+  engine: Engine
+
+  constructor(canvasId: string) {
     this.engine = new Engine(canvasId);
     this.engine.createShader(vertexShaderSource, fragmentShaderSource);
   }
